@@ -9,7 +9,7 @@ There is a sample nodejs app getting app  metrics.
 usage:
 
 ```
-docker run --name prometheus --rm  -d -p 9090:9090 -v ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus
+docker run --name prometheus -d -p 9090:9090 -v ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus
 ```
 
 ## Running Grafana
