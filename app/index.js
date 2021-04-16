@@ -25,7 +25,7 @@ const gauge = new prom.Gauge({
 const histogram = new prom.Histogram({
   name: 'aula_request_time_sec',
   help: 'Tempo de resposta da API',
-  buckets: [0.1, 0.2, 0.3, 0.4, 0.5]
+  // buckets: [0.1, 0.2, 0.3, 0.4, 0.5]
 });
 
 const summary = new client.Summary({
@@ -52,4 +52,4 @@ app.get('/metrics', async function(req, res) {
     res.end(await register.metrics());
 });
 
-app.listen(3000);
+app.listen(4000);

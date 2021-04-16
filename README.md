@@ -11,3 +11,9 @@ usage:
 ```
 docker run --name prometheus --rm  -d -p 9090:9090 -v ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus
 ```
+
+## Running Grafana
+
+```
+docker run -d --name=grafana -p 3000:3000 grafana/grafana
+```
