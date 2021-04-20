@@ -2,7 +2,7 @@ version: '3'
 volumes:
     grafana-storage:
     prometheus-storage:
-    telegraf-storage:
+    alertmanager-storage:
 services: 
     prometheus:
         image: prom/prometheus
@@ -20,3 +20,9 @@ services:
             - 3000:3000
         depends_on: 
             - prometheus
+    alertmanager:
+        image: quay.io/prometheus/alertmanager
+        volumes:
+            - alertmanager-storage:/alertmanager
+        ports:
+            - 9093:9093

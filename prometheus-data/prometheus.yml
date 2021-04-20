@@ -2,6 +2,14 @@ global:
   scrape_interval: 30s
   scrape_timeout: 10s
   evaluation_interval: 5s
+rule_files:
+  - 'alert.rules'  
+alerting:
+  alertmanagers:
+  - scheme: http
+    static_configs:
+      - targets:
+        - "192.168.0.18:9093"
 scrape_configs:
 - job_name: prometheus
   honor_timestamps: true
