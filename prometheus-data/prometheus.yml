@@ -21,7 +21,7 @@ scrape_configs:
   static_configs:
   - targets:
     - 192.168.0.18:4000
-- job_name: notebook
+- job_name: node
   honor_timestamps: true
   scrape_interval: 30s
   scrape_timeout: 10s

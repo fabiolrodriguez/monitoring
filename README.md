@@ -4,16 +4,28 @@ This is a collection of studies about monitoring, aka Prometheus + Grafana + Ale
 
 There is a sample nodejs app getting app  metrics.
 
-## Running Prometheus
+## Running local Environment
 
 usage:
 
 ```
-docker run --name prometheus -d -p 9090:9090 -v ./monitoring/prometheus/prometheus.yml:/etc/prometheus/prometheus.yml  prom/prometheus
+docker-compose up -d
 ```
 
-## Running Grafana
+## Node exporter
+
+Download desired version:
 
 ```
-docker run -d --name=grafana -p 3000:3000 grafana/grafana
+wget https://github.com/prometheus/node_exporter/releases/download/v1.1.2/node_exporter-1.1.2.linux-amd64.tar.gz
 ```
+
+Untar and Run
+
+```
+tar -xvfz node_exporter-1.1.2.linux-amd64.tar.gz
+cd node_exporter-1.1.2.linux-amd64.tar.gz
+./node_exporter &
+```
+
+Add Grafana Dashboard - 13978
