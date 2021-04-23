@@ -18,11 +18,20 @@ services:
             - grafana-storage:/var/lib/grafana
         ports:
             - 3000:3000
+        environment:
+            - GF_INSTALL_PLUGINS=camptocamp-prometheus-alertmanager-datasource       
         depends_on: 
             - prometheus
     alertmanager:
-        image: quay.io/prometheus/alertmanager
+        image: prom/alertmanager
+        command: ["--config.file=/alertmanager/alertmanager.yaml"]
         volumes:
-            - alertmanager-storage:/alertmanager
+            - ./alertmanager:/alertmanager
+            - alertmanager-storage:/alertmanager/data
         ports:
             - 9093:9093
+        environment:
+            PAGERDUTY_EMAIL: ${PAGERDUTY_EMAIL}
+            PAGERDUTY_KEY: ${PAGERDUTY_KEY}WW
+        # env_file:
+        #     - .env            
