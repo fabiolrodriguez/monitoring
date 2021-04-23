@@ -14,10 +14,23 @@ groups:
       description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 2 minutes."
 
   - alert: high_load
-    expr: node_load1 > 0.5
+    expr: node_load1 > 5
     for: 2m
     labels:
       severity: page
     annotations:
       summary: "Instance {{ $labels.instance }} under high load"
       description: "{{ $labels.instance }} of job {{ $labels.job }} is under high load."
+
+- name: WebApi
+  rules:
+
+  # Alert for any instance that is unreachable for >5 minutes.
+  - alert: WebApiErrors
+    expr: rate(aula_requests_total{statusCode="500"}[5m])*60 > 20
+    for: 1m
+    labels:
+      severity: critical
+    annotations:
+      summary: "High request errors on {{ $labels.instance }}"
+      description: "{{ $labels.statusCode }} has more than 10 error 500 by minute"
