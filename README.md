@@ -14,6 +14,8 @@ docker-compose up -d
 
 ## Node exporter
 
+To monitor Linux hosts, install node_exports on target.
+
 Download desired version:
 
 ```
