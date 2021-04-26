@@ -8,7 +8,7 @@ There is a sample nodejs app getting app  metrics.
 
 usage:
 
-```
+```bash
 docker-compose up -d
 ```
 
@@ -18,13 +18,13 @@ To monitor Linux hosts, install node_exports on target.
 
 Download desired version:
 
-```
+```bash
 wget https://github.com/prometheus/node_exporter/releases/download/v1.1.2/node_exporter-1.1.2.linux-amd64.tar.gz
 ```
 
 Untar and Run
 
-```
+```bash
 tar -xvfz node_exporter-1.1.2.linux-amd64.tar.gz
 cd node_exporter-1.1.2.linux-amd64.tar.gz
 ./node_exporter &
@@ -40,7 +40,7 @@ Import the alert dashboard located in folder ./grafana-data/dashboards/
 
 There is some fake Linux hosts  on prometheus.yaml to generate service_down alerts.
 
-```
+```yaml
 - job_name: node
   honor_timestamps: true
   scrape_interval: 30s
