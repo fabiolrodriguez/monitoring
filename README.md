@@ -55,3 +55,18 @@ There is some fake Linux hosts  on prometheus.yaml to generate service_down aler
     - 192.168.0.21:9100
 ```
 When you add node_exporter to some server, just add in this section.
+
+## Pagerduty integration
+
+To setup Pagerdutty[https://pagerduty.com/] integration, you need to create a free tier account and generate an API Token.
+
+In alertmanager.yaml, set a receiver to pagerduty:
+
+```yaml
+receivers:
+
+- name: 'team-X-pager'
+  pagerduty_configs:
+  - service_key: APIKEY
+```
+More information in Pagerduty Documentation[https://www.pagerduty.com/docs/guides/prometheus-integration-guide/]
