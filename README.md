@@ -2,7 +2,7 @@
 
 This is a collection of studies about monitoring, aka Prometheus + Grafana + Alertmanager.
 
-There is a sample nodejs app getting app  metrics.
+There is a sample nodejs app getting application metrics.
 
 ## Running local Environment
 
@@ -58,7 +58,7 @@ When you add node_exporter to some server, just add in this section.
 
 ## Pagerduty integration
 
-To setup Pagerdutty[https://pagerduty.com/] integration, you need to create a free tier account and generate an API Token.
+To setup Pagerdutty [https://pagerduty.com/] integration, you need to create a free tier account and generate an API Token.
 
 In alertmanager.yaml, set a receiver to pagerduty:
 
@@ -69,4 +69,4 @@ receivers:
   pagerduty_configs:
   - service_key: APIKEY
 ```
-More information in Pagerduty Documentation[https://www.pagerduty.com/docs/guides/prometheus-integration-guide/]
+More information in Pagerduty Documentation :[https://www.pagerduty.com/docs/guides/prometheus-integration-guide/]
