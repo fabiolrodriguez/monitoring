@@ -8,16 +8,16 @@ groups:
     expr: up == 0
     for: 2m
     labels:
-      severity: page
+      severity: "critical"
     annotations:
       summary: "Instance {{ $labels.instance }} down"
       description: "{{ $labels.instance }} of job {{ $labels.job }} has been down for more than 2 minutes."
 
   - alert: high_load
-    expr: node_load1 > 5
+    expr: node_load1 > 1
     for: 2m
     labels:
-      severity: page
+      severity: "warning"
     annotations:
       summary: "Instance {{ $labels.instance }} under high load"
       description: "{{ $labels.instance }} of job {{ $labels.job }} is under high load."
@@ -30,7 +30,16 @@ groups:
     expr: rate(aula_requests_total{statusCode="500"}[5m])*60 > 20
     for: 1m
     labels:
-      severity: critical
+      severity: "warning"
     annotations:
       summary: "High request errors on {{ $labels.instance }}"
       description: "{{ $labels.statusCode }} has more than 10 error 500 by minute"
+
+  - alert: ActiveUsers
+    expr: aula_usuarios_logados_total < 10
+    for: 1m
+    labels:
+      severity: "warning"
+    annotations:
+      summary: "High request errors on {{ $labels.instance }}"
+      description: "{{ $labels.statusCode }} less than 10 logged users"

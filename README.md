@@ -28,4 +28,8 @@ cd node_exporter-1.1.2.linux-amd64.tar.gz
 ./node_exporter &
 ```
 
-Add Grafana Dashboard - 13978
+## Grafana Dashboard
+
+Import the alert dashboard located in folder ./grafana-data/dashboards/
+
+![dashboard](alerts-dashboard.png)
